@@ -1,0 +1,102 @@
+
+<div id="">
+    <div class="owl-carousel owl-theme">
+        {% for item in section.blocks %}
+            {% if item.settings.image !=blank %}
+                <div class="item ">
+                    <div class="slide-content">
+                        {% if item.settings.title_banner != blank%}
+                            <div class=" container">
+                                <div class="banner-content">
+                                    {% if item.settings.events != blank %}
+                                        <h3>
+                                            {{ item.settings.events }}
+                                        </h3>
+                                    {% endif %}
+                                    {% if item.settings.title_banner != blank %}
+                                        <h2>
+                                            {{ item.settings.title_banner }}
+                                        </h2>
+                                    {% endif %}
+                                    {% if item.settings.oldprice != blank or item.settings.saleprice != blank %}
+                                        <p>
+                                            <span class="oldprice"> {{ item.settings.oldprice }}</span>
+                                            <span class="saleprice"> {{ item.settings.saleprice }}</span>
+                                        </p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="img-banner-des">
+                        <img src="{{ item.settings.image | img_url: 'master' }}" />
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+      nav: false,
+      loop: true,
+      autoplay:true,
+      autoplayTimeout:200000,
+      autoplayHoverPause:true,
+      dots:false,
+      items:1,
+      singleItem:true,
+      autoHeight:false
+    })
+  })
+  </script>
+{% schema %}
+{
+    "name":"Banner",
+    "blocks":[
+        {
+            "name":"Banner",
+            "type": "text",
+            "settings": [  
+                {
+                    "type": "image_picker",
+                    "id":"image",
+                    "label":"Image"
+                },
+                {
+                    "type": "text",
+                    "id":"title_banner",
+                    "label":"Title Banner"
+                },
+                {
+                    "type": "text",
+                    "id":"events",
+                    "label":"Events"
+                },
+                {
+                    "type": "text",
+                    "id":"oldprice",
+                    "label":"Old price"
+                },{
+                    "type": "text",
+                    "id":"saleprice",
+                    "label":"Sale price"
+                }
+            ]
+        }
+    ],
+    "presets":  [ 
+        {
+            "category": "banner",
+            "name":"Banner",
+            "blocks": [
+                {
+                    "type": "text"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

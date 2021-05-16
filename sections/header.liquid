@@ -154,7 +154,7 @@
           </a>
           <div class="minicart-content cart-slideout">
             <div class="header-cart-title">
-              <h3>Shopping Cart</h3>
+              <h3>Shopping Cart<span class="count-product-cart">({{ cart.item_count }})</span></h3>
               <div class="btn-minicart-close"></div>
             </div>
             <div class="minicart-slideout-wrapper">
@@ -172,7 +172,7 @@
                               <a href="{{ item.url }}">
                                 {{ item.product.title }}
                               </a>
-                              <a href="#" class="action delete" data-cart-item="{{ item.key }}" title="">
+                              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="action delete" data-cart-item="{{ item.key }}" title="" data-cart-remove data-role="product-remove" >
                                 <span>
                                   <i class="fa fa-times" aria-hidden="true"></i>
                                 </span>
@@ -214,11 +214,11 @@
                             <div class="details-product-wrapper">
                               <div class="details-qty" data-cart-item="{{ item.key }}">
                                 <div class="minus minus-qty edit-qty" data-cart-item="{{ item.key }}">
-                                  <span><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                  <span onclick="minusValue()" ><i class="fa fa-minus" aria-hidden="true"></i></span>
                                 </div>
-                                <input type="number" class="item-qty update-cart-item" data-cart-item="{{ item.key }}" data-item-qty="{{ item.quantity }}" value="{{ item.quantity }}">
+                                <input id="number" type="number" class="item-qty update-cart-item" data-cart-item="{{ item.key }}" data-item-qty="{{ item.quantity }}" value="{{ item.quantity }}">
                                 <div class="plus-qty edit-qty" data-cart-item="{{ item.key }}">
-                                  <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                  <span class="plus" onclick="incrementValue()"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                 </div>
                               </div>
                               <div class="price">
@@ -291,6 +291,20 @@
             $('.js').toggleClass("nav-open");
     });
 });
+function incrementValue()
+{
+    var value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('number').value = value;
+}
+function minusValue()
+{
+    var value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value--;
+    document.getElementById('number').value = value;
+}
 </script>
 
 <script type="application/ld+json">

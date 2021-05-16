@@ -7083,9 +7083,8 @@ font-weight: 800;
 font-family: 'FontAwesome';
 }
 .site-header__icon{
-  padding: 0 15px;
   font-size: 18px;
-  margin: 0 15px;
+  margin: 0 0 0 30px;
   padding: 0;
 }
 .site-nav__link--active .site-nav__label{
@@ -7263,7 +7262,10 @@ border-bottom-color:transparent;
   align-items: center;
 }
 .details-product-wrapper .details-qty{
-  width: 25%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 .product-item-name{
   justify-content: space-between;
@@ -7311,56 +7313,24 @@ border-bottom-color:transparent;
   background-color: #b49968;
   width: 100%;
 }
-
-/* endheader */
-
-/* banner */
-.banner-content{
+.site-header__cart-count{
+  right: -0.6rem;
+}
+.details-product-wrapper .details-qty .edit-qty{
   position: absolute;
-    top: 28%;
-    padding: 50px;
-    padding-left: 60px;
+    left: 0;
+    width: 25px;
+    text-align: center;
 }
-.banner-content h3{
-  font-size: 22px;
-  letter-spacing: 1.3px;
-  line-height: 37px;
-  color: #b49968;
-  font-weight: 500;
-  font-family: "Apercu Pro";
-  text-transform: uppercase;
-  padding-left: 5px;
+.details-product-wrapper .details-qty .edit-qty.plus-qty{
+  right: 0;
+  left: auto;
 }
-.banner-content h2{
-  font-size: 60px;
-  letter-spacing: 0.2px;
-  line-height: 28px;
-  color: #2c2c2c;
-  font-weight: 500;
-  font-family: "Apercu Pro";
-  text-transform: none;
+.update-cart-item{
+  text-align: center;
+  padding: 10px 30px;
 }
-.banner-content p{
-  margin-top: 50px;
-}
-.banner-content .oldprice{
-  font-size: 26px;
-  letter-spacing: 0.2px;
-  line-height: 42px;
-  text-decoration: line-through;
-  color: #9a9a9a;
-  font-family: "Apercu Pro";
-}
-.banner-content .saleprice{
-  font-size: 30px;
-  letter-spacing: 1.3px;
-  line-height: 39px;
-  color: #2c2c2c;
-  font-weight: bold;
-  font-family: "Apercu Pro";
-  padding-left: 6px;
-}
-/* endbanner */
+/* endheader */
 /* footer */
 .bottom-footer{
   font-size: 16px;
@@ -7376,7 +7346,7 @@ border-bottom-color:transparent;
   background-color: black;
 }
 .middle-footer-wrapper{
-  padding: 73px 0;
+  padding: 73px 22px;
 }
 .input-group .input-group__btn{
   position: absolute;
@@ -7481,9 +7451,72 @@ border-bottom-color:transparent;
   width: 100%;
 }
 /* endfooter */
+/* blogposts */
+.article__title{
+  font-size: 18px;
+  line-height: 24px;
+  color: #2c2c2c;
+  font-weight: 500;
+  font-family: "Apercu Pro";
+}
+.article__grid-excerpt{
+  font-size: 16px;
+  line-height: 24px;
+  color: #707070;
+  font-family: "Apercu Pro";
+}
+.article__grid-meta .article__meta-buttons a{
+  border: none;
+  font-size: 16px;
+  line-height: 22px;
+  color: #2c2c2c;
+  font-family: "Apercu Pro";
+  text-transform: capitalize;
+  position: relative;
+  padding: 0;
+}
+.article__meta-buttons li{
+  padding: 0;
+}
+.article__grid-meta .article__meta-buttons a:hover{
+  color: #b49968;
+}
+.article__grid-meta .article__meta-buttons a::before{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  opacity: 0;
+  transition: all 0.2s linear;
+  bottom: 0;
+  left: 0;
+}
+.article__grid-meta .article__meta-buttons a:hover::before{
+  width: 100%;
+  opacity: 1;
+  background-color: #b49968;
+}
+
+/* endblogposts */
 @media only screen and (max-width: 1200px) {
   .logo-align--left .site-header__logo {
     margin: 15px 0;
+  }
+  .site-header{
+    padding: 0 34px;
+  }
+  .shopify-section.container{
+    padding: 0 34px;
+  }
+  .page-width{
+    padding: 0 34px;
+  }
+  .middle-footer-wrapper{
+    padding: 73px 34px;
+  }
+  .shopify-section .container{
+    padding-left: 34px;
+    padding-right: 34px;
   }
    /* footer <1200px */
   .middle-footer-wrapper .title-content h2{
@@ -7508,6 +7541,21 @@ border-bottom-color:transparent;
   }
 }
  @media only screen and (max-width: 768px) {
+  .site-header{
+    padding: 0 20px;
+  }
+  .shopify-section.container{
+    padding: 0 20px;
+  }
+  .page-width{
+    padding: 0 20px;
+  }
+  .middle-footer-wrapper{
+    padding: 73px 20px;
+  }
+  .shopify-section .container{
+    padding-left: 20px;
+    padding-right: 20px;
    /* footer <768px */
    .content-fo0ter-bottom-left{
      text-align: center;

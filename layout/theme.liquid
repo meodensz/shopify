@@ -23,6 +23,9 @@
   <link rel="preload" as="font" href="{{ base_font_bold | font_url }}" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
   <link rel="preload" href="{{ 'lazysizes.js' | asset_url }}" as="script">
+  <link type="text/css" href="{{ 'homepage.scss.css' | asset_url }}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
 
   {{ 'stylesheet.css' | asset_url | stylesheet_tag }}
   {{ 'owl.carousel.css' | asset_url | stylesheet_tag }}
@@ -33,6 +36,7 @@
   {{ 'bootstrap.min.js' | asset_url | script_tag }}
   {{ 'owl.carousel.min.js' | asset_url | script_tag }}
   {{ 'owl.carousel.js' | asset_url | script_tag }}
+  <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   
 
   {%- if canonical_url != blank  -%}
